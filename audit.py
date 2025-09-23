@@ -439,8 +439,8 @@ if uploaded_file is not None:
     with col1:
         st.write(f"### Performance Summary ({selected_year})")
         year_summary_stats = year_df['Performance Status'].value_counts().to_frame()
-        year_summary_stats['Percentage'] = (year_summary_stats['Performance Status'] / len(year_df) * 100).round(1)
-        year_summary_stats.columns = ['Count', 'Percentage']
+        year_summary_stats.columns = ['Count']
+        year_summary_stats['Percentage'] = (year_summary_stats['Count'] / len(year_df) * 100).round(1)
         st.dataframe(year_summary_stats)
         
     with col2:
